@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-base
+FROM nvidia/cuda:10.0-base
 
 # install miniconda - copy bulk of conda docker file
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
