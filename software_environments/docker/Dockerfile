@@ -34,7 +34,7 @@ RUN add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release -s
 RUN conda install numpy=1.16.4
 RUN conda install jupyter=1.0.0
 RUN conda install matplotlib=3.0.3
-RUN conda install tensorflow-gpu==2.0.0-beta0
+RUN pip install tensorflow-gpu==2.0.0-beta0
 
 WORKDIR /sandbox
 
