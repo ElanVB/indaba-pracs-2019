@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-base
+FROM tensorflow/tensorflow:latest-gpu-py3
 
 # install miniconda - copy bulk of conda docker file
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
@@ -31,10 +31,11 @@ RUN apt-get update && \
 RUN add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 
 # install specific versoins of required python packages
-RUN conda install numpy=1.16.4
-RUN conda install jupyter=1.0.0
-RUN conda install matplotlib=3.0.3
-RUN pip install tensorflow-gpu==2.0.0-beta0
+RUN conda install -y --no-update-deps numpy=1.16.4
+RUN conda install -y --no-update-deps jupyter=1.0.0
+RUN conda install -y --no-update-deps matplotlib=3.0.3
+# RUN conda uninstall -y tensorflow-gpu
+# RUN pip install tensorflow-gpu==2.0.0-beta0
 
 WORKDIR /sandbox
 
